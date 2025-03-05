@@ -57,7 +57,7 @@ async def load_cogs():
 async def main():
     await load_cogs()
     await bot.start(
-        "MTMzOTI3NDExMjA0Mzg0MzU4NQ.GHLJG_.ami-wjAYHJXlSGoplx-vwkygSdnsrNxezN3jDE"
+        "my token here"
     )
 
 
