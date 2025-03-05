@@ -3,6 +3,7 @@ from discord.ext import commands
 
 
 class OwnerCommands(commands.Cog):
+
     def __init__(self, bot):
         self.bot = bot
 
@@ -10,8 +11,8 @@ class OwnerCommands(commands.Cog):
     async def on_ready(self):
         print(f"{__name__} cog loaded")
 
-        async def cog_check(self, ctx):
-            return ctx.author == ctx.guild.owner
+    async def CogCheck(self, ctx):
+        return ctx.author == ctx.guild.owner
 
     @commands.command(
         help="Deletes a specified number of messages, or all if no number is given.",
@@ -21,7 +22,7 @@ class OwnerCommands(commands.Cog):
     async def clear(self, ctx, amount: int = None):
         if amount is None:
             deleted = await ctx.channel.purge()
-            await ctx.send("Deleted all messages.", delete_after=3)
+            await ctx.send("Deleted **all** messages.", delete_after=3)
         else:
             if amount <= 0:
                 await ctx.send(
@@ -30,7 +31,7 @@ class OwnerCommands(commands.Cog):
                 return
 
             deleted = await ctx.channel.purge(limit=amount)
-            await ctx.send(f"Deleted {len(deleted)} messages.", delete_after=3)
+            await ctx.send(f"Deleted **{len(deleted)}** messages.", delete_after=3)
 
 
 async def setup(bot):
