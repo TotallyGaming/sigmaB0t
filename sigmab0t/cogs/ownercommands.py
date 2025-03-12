@@ -5,11 +5,8 @@ from discord.ext import commands
 class OwnerCommands(commands.Cog):
 
     def __init__(self, bot):
-        self.bot = bot
-
-    @commands.Cog.listener()
-    async def on_ready(self):
-        print(f"{__name__} cog loaded")
+        self.bot = bot        
+        print(f"{self.__class__.__name__} cog loaded")
 
     async def CogCheck(self, ctx):
         return ctx.author == ctx.guild.owner
