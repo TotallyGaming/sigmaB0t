@@ -57,7 +57,7 @@ async def load_cogs():
 async def main():
     await load_cogs()
     await bot.start(
-        "my token here"
+        "bot token"
     )
 
 
